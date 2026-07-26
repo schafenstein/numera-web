@@ -1,0 +1,93 @@
+# web/ — die Numly-Website
+
+Vier statische Seiten, kein Build-Schritt, keine Abhängigkeiten, nichts wird von außen
+nachgeladen (keine Schriften, kein CDN, kein Analytics). Damit läuft das auf jedem Webserver,
+auf GitHub Pages, auf Netlify — überall gleich.
+
+```
+index.html        Startseite
+support.html      Support + FAQ   → die Support-URL für App Store Connect
+datenschutz.html  Datenschutz     → die Datenschutz-URL für App Store Connect
+impressum.html    Vorlage, siehe unten
+style.css         die Farbtokens der App (Theme.swift)
+img/              drei Screenshots, auf 900px Breite verkleinert
+```
+
+## ⚠️ Vor dem Hochladen ausfüllen
+
+Die Platzhalter stehen absichtlich in GROSSBUCHSTABEN, damit sie nicht versehentlich
+online gehen. Alle finden:
+
+```bash
+grep -rn "EINTRAGEN" web/
+```
+
+- **`MAILADRESSE@EINTRAGEN`** — die Kontaktadresse. Steht in `support.html`,
+  `datenschutz.html` und `impressum.html`. Überlege, ob du dafür eine eigene Adresse
+  nimmst: sie steht öffentlich im Netz und wird von Spam-Sammlern gefunden.
+- **`NAME EINTRAGEN`** — im Copyright-Fuß jeder Seite und als Verantwortlicher im
+  Datenschutz.
+- **`ANSCHRIFT EINTRAGEN`** / die Adresszeilen im Impressum.
+
+**Impressum:** ob du eines brauchst, hängt davon ab, ob du die App privat oder
+geschäftsmäßig anbietest — eine kostenlose App ohne Einnahmen ist der Grenzfall. Wenn du
+keines brauchst, lösche `impressum.html` **und** die drei Links darauf in den Fußzeilen der
+anderen Seiten. Das ist keine Rechtsberatung.
+
+## Hochladen auf einen eigenen Server
+
+```bash
+rsync -avz --delete web/ user@server:/var/www/numly/
+```
+
+nginx-Block, falls du einen brauchst:
+
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name numly.example;
+
+    root /var/www/numly;
+    index index.html;
+
+    # Saubere URLs: /support statt /support.html
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+}
+```
+
+Für TLS ist `certbot --nginx -d numly.example` der übliche Weg. Ohne HTTPS akzeptiert Apple
+die URLs zwar meist trotzdem, aber eine Datenschutzseite ohne TLS ist kein guter Auftritt.
+
+## Alternative: GitHub Pages
+
+Aus dem privaten Hauptrepo braucht Pages einen bezahlten Plan. Der kostenlose Weg ist ein
+zweites, **öffentliches** Repo, in das nur der Inhalt von `web/` kommt:
+
+```bash
+cd web && git init && git add -A && git commit -m "Numly website"
+gh repo create numly-web --public --source=. --push
+gh api -X POST repos/:owner/numly-web/pages -f source[branch]=main -f source[path]=/
+```
+
+Die URL ist dann `https://<user>.github.io/numly-web/` — für App Store Connect völlig
+ausreichend.
+
+## Screenshots erneuern
+
+`img/` enthält verkleinerte Kopien aus `build/appstore/` (die Originale liegen nicht im Git):
+
+```bash
+sips -Z 900 build/appstore/iphone-6.9/01-home.png --out web/img/home.png
+sips -Z 900 build/appstore/iphone-6.9/03a-play-timeattack.png --out web/img/play.png
+sips -Z 900 build/appstore/iphone-6.9/04-progress.png --out web/img/progress.png
+```
+
+Wie die Originale entstehen, steht in `docs/appstore-metadata.md`.
+
+## Örtlich anschauen
+
+```bash
+python3 -m http.server -d web 8000
+```
