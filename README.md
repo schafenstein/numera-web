@@ -1,4 +1,4 @@
-# web/ — die Numly-Website
+# web/ — die Numera-Website
 
 Vier statische Seiten, kein Build-Schritt, keine Abhängigkeiten, nichts wird von außen
 nachgeladen (keine Schriften, kein CDN, kein Analytics). Damit läuft das auf jedem Webserver,
@@ -66,7 +66,7 @@ Aus dem privaten Hauptrepo braucht Pages einen bezahlten Plan. Der kostenlose We
 zweites, **öffentliches** Repo, in das nur der Inhalt von `web/` kommt:
 
 ```bash
-cd web && git init && git add -A && git commit -m "Numly website"
+cd web && git init && git add -A && git commit -m "Numera website"
 gh repo create numly-web --public --source=. --push
 gh api -X POST repos/:owner/numly-web/pages -f source[branch]=main -f source[path]=/
 ```
