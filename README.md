@@ -10,7 +10,7 @@ support.html      Support + FAQ   → die Support-URL für App Store Connect
 datenschutz.html  Datenschutz     → die Datenschutz-URL für App Store Connect
 impressum.html    Vorlage, siehe unten
 style.css         die Farbtokens der App (Theme.swift)
-img/              drei Screenshots, auf 900px Breite verkleinert
+img/              drei Screenshots, auf 386px Breite verkleinert (dargestellt bei 210px)
 ```
 
 ## ⚠️ Vor dem Hochladen ausfüllen
@@ -76,15 +76,22 @@ ausreichend.
 
 ## Screenshots erneuern
 
-`img/` enthält verkleinerte Kopien aus `build/appstore/` (die Originale liegen nicht im Git):
+`img/` enthält verkleinerte Kopien aus `release/screenshots/iphone-6.9/` (die liegen im Git,
+erzeugt von `tools/screenshot-pass.sh`):
 
 ```bash
-sips -Z 900 build/appstore/iphone-6.9/01-home.png --out web/img/home.png
-sips -Z 900 build/appstore/iphone-6.9/03a-play-timeattack.png --out web/img/play.png
-sips -Z 900 build/appstore/iphone-6.9/04-progress.png --out web/img/progress.png
+sips -Z 386 release/screenshots/iphone-6.9/01-home.png       --out web/img/home.png
+sips -Z 386 release/screenshots/iphone-6.9/04-ueben.png      --out web/img/play.png
+sips -Z 386 release/screenshots/iphone-6.9/05-fortschritt.png --out web/img/progress.png
 ```
 
-Wie die Originale entstehen, steht in `docs/appstore-metadata.md`.
+⚠️ **Diese Befehle standen bis zum 24.08. auf `build/appstore/` und auf einer Datei namens
+`03a-play-timeattack.png`** — einem Ordner, der nicht mehr gefüllt wird, und einem Spielmodus,
+den es seit Monaten nicht mehr gibt. Wer sie kopierte, bekam einen Fehler statt eines Bildes.
+
+⚠️ **Die Seiten driften still — sie werden von nichts gebaut und von nichts getestet.** Am
+21.08. standen hier „25 Module" und „Time Attack". **Wer Modulnamen, Modi oder Zählungen
+ändert, greppt `web/` mit.**
 
 ## Örtlich anschauen
 
