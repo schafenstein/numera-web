@@ -29,10 +29,11 @@ grep -rn "EINTRAGEN" web/
   Datenschutz.
 - **`ANSCHRIFT EINTRAGEN`** / die Adresszeilen im Impressum.
 
-**Impressum:** ob du eines brauchst, hängt davon ab, ob du die App privat oder
-geschäftsmäßig anbietest — eine kostenlose App ohne Einnahmen ist der Grenzfall. Wenn du
-keines brauchst, lösche `impressum.html` **und** die drei Links darauf in den Fußzeilen der
-anderen Seiten. Das ist keine Rechtsberatung.
+**Impressum: bleibt** (Nutzerentscheid 2026-08-24). Die Frage war, ob eine kostenlose App
+ohne Einnahmen als privat oder geschäftsmäßig gilt — der Grenzfall ist zugunsten des
+Impressums entschieden. `impressum.html` und die drei Fußzeilen-Links bleiben also stehen;
+die Anschrift dort und die unter „Verantwortlich" in `datenschutz.html` sind **dieselbe** und
+gehören zusammen ausgefüllt. Das ist keine Rechtsberatung.
 
 ## Hochladen auf einen eigenen Server
 
