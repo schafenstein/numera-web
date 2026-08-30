@@ -13,27 +13,27 @@ style.css         die Farbtokens der App (Theme.swift)
 img/              drei Screenshots, auf 386px Breite verkleinert (dargestellt bei 210px)
 ```
 
-## ⚠️ Vor dem Hochladen ausfüllen
+## Kontaktdaten — seit 2026-08-31 eingetragen
 
-Die Platzhalter stehen absichtlich in GROSSBUCHSTABEN, damit sie nicht versehentlich
-online gehen. Alle finden:
+Die GROSSBUCHSTABEN-Platzhalter sind **weg**; `grep -rn "EINTRAGEN" web/` findet nichts
+mehr. Eingetragen sind (auf Nutzerangabe): **André Schäfer**, Sonnenstraße 10,
+66917 Wallhalben, **schafenstein@posteo.de**.
 
-```bash
-grep -rn "EINTRAGEN" web/
-```
-
-- **`MAILADRESSE@EINTRAGEN`** — die Kontaktadresse. Steht in `support.html`,
-  `datenschutz.html` und `impressum.html`. Überlege, ob du dafür eine eigene Adresse
-  nimmst: sie steht öffentlich im Netz und wird von Spam-Sammlern gefunden.
-- **`NAME EINTRAGEN`** — im Copyright-Fuß jeder Seite und als Verantwortlicher im
-  Datenschutz.
-- **`ANSCHRIFT EINTRAGEN`** / die Adresszeilen im Impressum.
+⚠️ **Diese Angaben stehen jetzt öffentlich im Netz** — die Mailadresse wird von
+Spam-Sammlern gefunden, die Anschrift ist über die Suche auffindbar. Das war die bewusste
+Entscheidung; wer sie zurücknehmen will, ersetzt sie an **vier** Stellen: Fuß jeder Seite
+(Name), `support.html` (Mail), `impressum.html` (alles) und `datenschutz.html` unter
+„Verantwortlich" (alles). Die Anschrift im Impressum und die unter „Verantwortlich" sind
+**dieselbe** und gehören zusammen gepflegt.
 
 **Impressum: bleibt** (Nutzerentscheid 2026-08-24). Die Frage war, ob eine kostenlose App
 ohne Einnahmen als privat oder geschäftsmäßig gilt — der Grenzfall ist zugunsten des
-Impressums entschieden. `impressum.html` und die drei Fußzeilen-Links bleiben also stehen;
-die Anschrift dort und die unter „Verantwortlich" in `datenschutz.html` sind **dieselbe** und
-gehören zusammen ausgefüllt. Das ist keine Rechtsberatung.
+Impressums entschieden. Das ist keine Rechtsberatung.
+
+⚠️ **Die Datenschutzseite spricht in der ICH-Form** (seit 31.08.): sie sagt „ich" statt
+„der Anbieter dieser App", seit der Verantwortliche namentlich dort steht. Wer einen
+Abschnitt ergänzt, bleibt dabei — ein Text, der zwischen beidem wechselt, liest sich, als
+wären es zwei verschiedene Personen.
 
 ## Hochladen auf einen eigenen Server
 
