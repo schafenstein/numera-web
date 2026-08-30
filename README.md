@@ -17,14 +17,22 @@ img/              drei Screenshots, auf 386px Breite verkleinert (dargestellt be
 
 Die GROSSBUCHSTABEN-Platzhalter sind **weg**; `grep -rn "EINTRAGEN" web/` findet nichts
 mehr. Eingetragen sind (auf Nutzerangabe): **André Schäfer**, Sonnenstraße 10,
-66917 Wallhalben, **schafenstein@posteo.de**.
+66917 Wallhalben, **schafensteinapp@posteo.com**.
 
-⚠️ **Diese Angaben stehen jetzt öffentlich im Netz** — die Mailadresse wird von
-Spam-Sammlern gefunden, die Anschrift ist über die Suche auffindbar. Das war die bewusste
-Entscheidung; wer sie zurücknehmen will, ersetzt sie an **vier** Stellen: Fuß jeder Seite
-(Name), `support.html` (Mail), `impressum.html` (alles) und `datenschutz.html` unter
-„Verantwortlich" (alles). Die Anschrift im Impressum und die unter „Verantwortlich" sind
-**dieselbe** und gehören zusammen gepflegt.
+Die Mailadresse ist eine **eigene App-Adresse**, nicht das private Postfach — sie steht
+öffentlich auf drei Seiten und wird von Spam-Sammlern abgegriffen, das trifft so nur ein
+Postfach, das dafür da ist. (Am 31.08. stand dort kurz die private Adresse; sie ist noch
+am selben Tag ersetzt worden.)
+
+⚠️ **Die Angaben stehen öffentlich im Netz**, auch die Anschrift. Wer etwas ändert, ändert
+es an **vier** Stellen: Fuß jeder Seite (Name), `support.html` (Mail), `impressum.html`
+(alles) und `datenschutz.html` unter „Verantwortlich" (alles) — Mail und Anschrift jeweils
+zweimal je Datei (Linktext und `mailto:`). Die Anschrift im Impressum und die unter
+„Verantwortlich" sind **dieselbe** und gehören zusammen gepflegt. Zum Prüfen:
+
+```bash
+grep -rn "posteo\|Sonnenstraße\|André" web/*.html
+```
 
 **Impressum: bleibt** (Nutzerentscheid 2026-08-24). Die Frage war, ob eine kostenlose App
 ohne Einnahmen als privat oder geschäftsmäßig gilt — der Grenzfall ist zugunsten des
